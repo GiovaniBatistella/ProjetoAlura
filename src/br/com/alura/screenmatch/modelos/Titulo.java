@@ -1,11 +1,10 @@
 package br.com.alura.screenmatch.modelos;
 
-import com.google.gson.annotations.SerializedName;
+import br.com.alura.screenmatch.principal.br.com.alura.screenmatch.excecao.ErroDeConversaoDeAnoException;
+
 
 public class Titulo implements Comparable<Titulo> {
-    @SerializedName("Title")
     private String nome;
-    @SerializedName("Year")
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
@@ -16,6 +15,10 @@ public class Titulo implements Comparable<Titulo> {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
     }
+
+    public Titulo(SearchTituloOmdb meuTituloOmdb) {
+    }
+
 
     public String getNome() {
         return nome;
@@ -53,34 +56,119 @@ public class Titulo implements Comparable<Titulo> {
         this.duracaoEmMinutos = duracaoEmMinutos;
     }
 
-    public void exibeFichaTecnica(){
+    public void exibeFichaTecnica() {
         System.out.println("Nome do filme: " + nome);
         System.out.println("Ano de lançamento: " + anoDeLancamento);
     }
 
-    public void avalia(double nota){
+    public void avalia(double nota) {
         somaDasAvaliacoes += nota;
         totalDeAvaliacoes++;
     }
 
-    public double pegaMedia(){
+    public double pegaMedia() {
         return somaDasAvaliacoes / totalDeAvaliacoes;
     }
 
-    public Titulo(TituloOmdb meuTituloOmdb) {
-        this.nome = meuTituloOmdb.title();
-        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
-        //this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
-    }
-
     @Override
-    public int compareTo(Titulo outroTitulo) {
-
-        return this.getNome().compareTo(outroTitulo.getNome());
+    public int compareTo(Titulo o) {
+        return 0;
     }
-    @Override
+//
+//
+//    public Titulo(TituloOmdb meuTituloOmdb) {
+//        this.nome = meuTituloOmdb.title();
+//        if (meuTituloOmdb.year().length() > 4){
+//            throw new ErroDeConversaoDeAnoException("Nao consegui coverter o ano " +
+//                    "porque existem mais de 4 caracteres. ");
+//        }
+//        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
+//        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,2));
+//    }
+//
+//      @Override
+//     public int compareTo(Titulo outroTitulo) {
+//
+//        return this.getNome().compareTo(outroTitulo.getNome());
+//    }
+  @Override
     public String toString() {
-        return "nome='" + nome + '\'' +
-                ", anoDeLancamento=" + anoDeLancamento;
+        return "(nome = " + nome +
+                ", anoDeLancamento =" + anoDeLancamento +")";
+
     }
+    private String title;
+    private String year;
+    private String imdbId;
+    private String type;
+    private String poster;
+    private String search;
+    private String response;
+    private String totalResponse;
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getImdbId() {
+        return imdbId;
+    }
+
+    public void setImdbId(String imdbId) {
+        this.imdbId = imdbId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
+    }
+
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
+    }
+
+    public String getTotalResponse() {
+        return totalResponse;
+    }
+
+    public void setTotalResponse(String totalResponse) {
+        this.totalResponse = totalResponse;
+    }
+
 }
