@@ -2,9 +2,8 @@ package br.com.alura.screenmatch.modelos;
 
 
 
-public class SearchTituloOmdb{
+public class Search{
 
-    private String search;
     private String title;
     private String year;
     private String imdbId;
@@ -12,7 +11,6 @@ public class SearchTituloOmdb{
     private String poster;
     private String response;
     private String totalResponse;
-
 
 
     public String getTitle() {
@@ -55,14 +53,6 @@ public class SearchTituloOmdb{
         this.poster = poster;
     }
 
-    public String getSearch() {
-        return search;
-    }
-
-    public void setSearch(String search) {
-        this.search = search;
-    }
-
     public String getResponse() {
         return response;
     }
@@ -79,15 +69,18 @@ public class SearchTituloOmdb{
         this.totalResponse = totalResponse;
     }
 
-
-
     @Override
     public String toString() {
-        return "meuTituloOmdb: \n" +
-                "title: " + title+ "\n"+
-                "year: " + year +  "\n"+
-                "imdbId: " + imdbId +  "\n"+
-                "type: " + type+ "\n"+
-                "poster: " +poster+ "\n";
+        return "Search{" +
+                "title= " + title + "\n" +
+                "year=  " + year +"\n" +
+                "imdbId= " + imdbId +"\n" +
+                "type= " + type +"\n" +
+                "poster= " + poster +"\n" +
+                "response= " + response +"\n" +
+                "totalResponse= " + totalResponse;
+
     }
 }
+
+

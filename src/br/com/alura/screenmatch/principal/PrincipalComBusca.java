@@ -1,11 +1,10 @@
 package br.com.alura.screenmatch.principal;
 
-import br.com.alura.screenmatch.modelos.SearchTituloOmdb;
+import br.com.alura.screenmatch.modelos.Search;
 import br.com.alura.screenmatch.modelos.Titulo;
 import br.com.alura.screenmatch.principal.br.com.alura.screenmatch.excecao.ErroDeConversaoDeAnoException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -50,15 +49,10 @@ public class PrincipalComBusca {
                 String json = response.body();
 
 
-                SearchTituloOmdb meuTituloOmdb = gson.fromJson(json, SearchTituloOmdb.class);
+                Search meuTituloOmdb = gson.fromJson(json, Search.class);
                 System.out.println(meuTituloOmdb.toString());
 
-//            Titulo meuTitulo = new Titulo(meuTituloOmdb);
-//            System.out.println("Titulo ja convertido ");
-//            System.out.println(meuTituloOmdb);
-//
-//            titulos.add(meuTitulo);
-//
+
 
             } catch (NumberFormatException e) {
                 System.out.println("Ocorreu um erro");
@@ -70,11 +64,6 @@ public class PrincipalComBusca {
             } catch (Exception e) {
             }
 
-//            System.out.println(titulos);
-//            FileWriter escrita = new FileWriter("Filmes.json");
-//            escrita.write(gson.toJson(titulos));
-//            escrita.close();
-//            System.out.println("O programa finalizou corretamente! ");
         }
 
 

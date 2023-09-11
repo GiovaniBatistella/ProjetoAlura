@@ -16,7 +16,7 @@ public class Titulo implements Comparable<Titulo> {
         this.anoDeLancamento = anoDeLancamento;
     }
 
-    public Titulo(SearchTituloOmdb meuTituloOmdb) {
+    public Titulo(Search meuTituloOmdb) {
     }
 
 
