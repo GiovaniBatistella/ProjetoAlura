@@ -62,6 +62,7 @@ public class PrincipalComBusca {
             } catch (ErroDeConversaoDeAnoException e) {
                 System.out.println(e.getMessage());
             } catch (Exception e) {
+                
             }
 
         }
